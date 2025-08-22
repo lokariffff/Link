@@ -1,0 +1,20 @@
+﻿@page
+@model CreateModel
+
+<h1>Создать новую ссылку</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Link.OriginalUrl"></label>
+        <input asp-for="Link.OriginalUrl" class="form-control" />
+        <span asp-validation-for="Link.OriginalUrl" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Создать</button>
+    <div asp-validation-summary="All" class="text-danger"></div>
+</form>
+
+<a asp-page="./Index">Назад к списку</a>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

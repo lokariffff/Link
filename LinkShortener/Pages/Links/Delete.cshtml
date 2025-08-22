@@ -1,0 +1,28 @@
+﻿@page
+@model DeleteModel
+
+<h1>Удалить ссылку</h1>
+
+<h3>Вы уверены, что хотите удалить эту ссылку?</h3>
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Link.OriginalUrl)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Link.OriginalUrl)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Link.ShortCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Link.ShortCode)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Link.Id" />
+        <button type="submit" class="btn btn-danger">Удалить</button>
+        <a asp-page="./Index" class="btn btn-secondary">Отмена</a>
+    </form>
+</div>

@@ -1,0 +1,23 @@
+﻿@page
+@model IndexModel
+
+<h1>Сервис сокращения ссылок</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="NewLink.OriginalUrl"></label>
+        <input asp-for="NewLink.OriginalUrl" class="form-control" />
+        <span asp-validation-for="NewLink.OriginalUrl" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Сократить</button>
+    <div asp-validation-summary="All" class="text-danger"></div>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.ShortUrl))
+{
+    <p>Короткая ссылка: <a href="@Model.ShortUrl">@Model.ShortUrl</a></p>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
